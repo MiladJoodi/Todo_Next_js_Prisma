@@ -1,9 +1,15 @@
-const todoActions = () => {
-    return (
-        <div>
-            Enter
-        </div>
-    );
-}
+"use server"
 
-export default todoActions;
+import { revalidatePath } from "next/cache"
+import { prisma } from "@/utils/prisma"
+
+export async function create(formData: FormData) {
+    const input = formData.get("input") as string;
+
+    await prisma.todo.create({
+        data: {
+            title: input,
+        }
+    })
+    revalidatePath("/")
+}

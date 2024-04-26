@@ -1,9 +1,12 @@
 import AddTodo from "@/components/shared/AddTodo";
-import Image from "next/image";
+import { prisma } from "@/utils/prisma"
+
+
+
 
 export default function Home() {
   return (
-    <div className="w-screen py-20 flex justify-center flex-col items-center bg-red-100">
+    <div className="w-screen py-20 flex justify-center flex-col items-center">
       <span className="text-3xl font-extrabold uppercase">
         To-do-app
       </span>
@@ -14,7 +17,7 @@ export default function Home() {
         </span>
       </h1>
 
-      <div className="flex justify-center items-center w-[1000px] bg-blue-100">
+      <div className="flex justify-center items-center w-[1000px]">
         <AddTodo />
       </div>
     </div>
